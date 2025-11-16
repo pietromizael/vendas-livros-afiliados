@@ -16,94 +16,19 @@ interface Book {
 
 const books: Book[] = [
   {
-    id: '1',
-    title: 'A Arte da Guerra',
-    author: 'Sun Tzu',
-    description: 'Um clássico milenar sobre estratégia militar e táticas de combate que transcende o campo de batalha, oferecendo insights profundos sobre liderança, planejamento e tomada de decisões.',
+    id: '1', // Mantive o ID '1' para o seu livro, mas você pode mudar se tiver mais.
+    title: 'Mais Esperto Que O Diabo - Livro De Bolso: O Mistério Revelado Da Liberdad...',
+    author: 'Napoleon Hill',
+    description: 'Neste livro extraordinário, Napoleon Hill revela os segredos que o impediam de alcançar a liberdade pessoal, oferecendo uma entrevista exclusiva com o "Diabo" que ficou oculta por décadas. Uma obra essencial para quem busca superar medos e limitações.',
     mainIdeas: [
-      'Conheça a si mesmo e ao inimigo',
-      'Vença sem lutar quando possível',
-      'A estratégia precede a tática',
-      'Adaptabilidade é fundamental'
+      'Domine o medo e a indecisão',
+      'Liberte-se de hábitos destrutivos',
+      'Desvende os truques do "Diabo" (resistência interna)',
+      'Alcance a verdadeira liberdade pessoal e sucesso'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1604866830893-c13cafa515d5?w=400&h=600&fit=crop',
-    affiliateLink: 'https://amzn.to/arte-da-guerra',
-    price: 'R$ 29,90'
-  },
-  {
-    id: '2',
-    title: 'O Príncipe',
-    author: 'Nicolau Maquiavel',
-    description: 'Obra fundamental sobre poder político e governança. Maquiavel apresenta uma visão realista e pragmática sobre como conquistar e manter o poder, desafiando as convenções morais de sua época.',
-    mainIdeas: [
-      'Os fins justificam os meios',
-      'É melhor ser temido que amado',
-      'A virtù do governante',
-      'Pragmatismo político acima do idealismo'
-    ],
-    imageUrl: 'https://images.unsplash.com/photo-1532012197267-da84d127e765?w=400&h=600&fit=crop',
-    affiliateLink: 'https://amzn.to/o-principe',
-    price: 'R$ 24,90'
-  },
-  {
-    id: '3',
-    title: 'Assim Falou Zaratustra',
-    author: 'Friedrich Nietzsche',
-    description: 'Uma obra-prima filosófica que apresenta conceitos revolucionários como o Übermensch (Super-Homem) e o eterno retorno. Nietzsche desafia valores tradicionais e propõe uma nova forma de existência.',
-    mainIdeas: [
-      'A morte de Deus e suas consequências',
-      'O conceito do Super-Homem',
-      'Eterno retorno do mesmo',
-      'Vontade de poder como força vital'
-    ],
-    imageUrl: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=600&fit=crop',
-    affiliateLink: 'https://amzn.to/zaratustra',
-    price: 'R$ 34,90'
-  },
-  {
-    id: '4',
-    title: 'Além do Bem e do Mal',
-    author: 'Friedrich Nietzsche',
-    description: 'Nietzsche questiona os fundamentos da moralidade ocidental, propondo uma reavaliação radical dos valores. Uma crítica profunda ao dogmatismo filosófico e religioso.',
-    mainIdeas: [
-      'Crítica à moral tradicional',
-      'Perspectivismo filosófico',
-      'A genealogia da moral',
-      'Filosofia do futuro'
-    ],
-    imageUrl: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=600&fit=crop',
-    affiliateLink: 'https://amzn.to/alem-bem-mal',
-    price: 'R$ 32,90'
-  },
-  {
-    id: '5',
-    title: 'Meditações',
-    author: 'Marco Aurélio',
-    description: 'Reflexões pessoais do imperador romano sobre estoicismo, virtude e a natureza da existência. Um guia atemporal para viver com sabedoria e equanimidade.',
-    mainIdeas: [
-      'Controle apenas o que está ao seu alcance',
-      'Viva de acordo com a natureza',
-      'A impermanência de todas as coisas',
-      'Virtude como bem supremo'
-    ],
-    imageUrl: 'https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=400&h=600&fit=crop',
-    affiliateLink: 'https://amzn.to/meditacoes',
-    price: 'R$ 27,90'
-  },
-  {
-    id: '6',
-    title: 'Discursos sobre a Primeira Década de Tito Lívio',
-    author: 'Nicolau Maquiavel',
-    description: 'Análise profunda sobre repúblicas, liberdade política e virtude cívica. Maquiavel examina a história romana para extrair lições sobre governança e poder.',
-    mainIdeas: [
-      'Virtude cívica e república',
-      'Lições da história romana',
-      'Conflito como motor da liberdade',
-      'Instituições e poder popular'
-    ],
-    imageUrl: 'https://images.unsplash.com/photo-1461360370896-922624d12aa1?w=400&h=600&fit=crop',
-    affiliateLink: 'https://amzn.to/discursos',
-    price: 'R$ 38,90'
+    imageUrl: 'https://i.ibb.co/L15Xm3z/81-YXWc-E-u-L-AC-UF1000-1000-QL80.jpg', // URL da sua imagem
+    affiliateLink: 'https://mercadolivre.com/sec/1bCtE4x', // Seu link de afiliado
+    price: 'R$ 19' // O preço que você mencionou
   }
 ]
 

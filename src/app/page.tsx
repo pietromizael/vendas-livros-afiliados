@@ -1,75 +1,94 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import { Heart, Share2, Facebook, Twitter, Linkedin, BookOpen, Sword, Brain } from 'lucide-react'
+import { useState, useEffect } from "react";
+import {
+  Heart,
+  Share2,
+  Facebook,
+  Twitter,
+  Linkedin,
+  BookOpen,
+  Sword,
+  Brain,
+} from "lucide-react";
 
 interface Book {
-  id: string
-  title: string
-  author: string
-  description: string
-  mainIdeas: string[]
-  imageUrl: string
-  affiliateLink: string
-  price: string
+  id: string;
+  title: string;
+  author: string;
+  description: string;
+  mainIdeas: string[];
+  imageUrl: string;
+  affiliateLink: string;
+  price: string;
 }
 
 const books: Book[] = [
   {
-    id: '1', // Mantive o ID '1' para o seu livro, mas você pode mudar se tiver mais.
-    title: 'Mais Esperto Que O Diabo - Livro De Bolso: O Mistério Revelado Da Liberdad...',
-    author: 'Napoleon Hill',
-    description: 'Neste livro extraordinário, Napoleon Hill revela os segredos que o impediam de alcançar a liberdade pessoal, oferecendo uma entrevista exclusiva com o "Diabo" que ficou oculta por décadas. Uma obra essencial para quem busca superar medos e limitações.',
+    id: "1", // Mantive o ID '1' para o seu livro, mas você pode mudar se tiver mais.
+    title:
+      "Mais Esperto Que O Diabo - Livro De Bolso: O Mistério Revelado Da Liberdad...",
+    author: "Napoleon Hill",
+    description:
+      'Neste livro extraordinário, Napoleon Hill revela os segredos que o impediam de alcançar a liberdade pessoal, oferecendo uma entrevista exclusiva com o "Diabo" que ficou oculta por décadas. Uma obra essencial para quem busca superar medos e limitações.',
     mainIdeas: [
-      'Domine o medo e a indecisão',
-      'Liberte-se de hábitos destrutivos',
+      "Domine o medo e a indecisão",
+      "Liberte-se de hábitos destrutivos",
       'Desvende os truques do "Diabo" (resistência interna)',
-      'Alcance a verdadeira liberdade pessoal e sucesso'
+      "Alcance a verdadeira liberdade pessoal e sucesso",
     ],
-    imageUrl: 'https://i.ibb.co/L15Xm3z/81-YXWc-E-u-L-AC-UF1000-1000-QL80.jpg', // URL da sua imagem
-    affiliateLink: 'https://mercadolivre.com/sec/1bCtE4x', // Seu link de afiliado
-    price: 'R$ 19' // O preço que você mencionou
-  }
-]
+    imageUrl: "/images/mais-esperto-que-o-diabo.png", // URL da sua imagem
+    affiliateLink: "https://mercadolivre.com/sec/1bCtE4x", // Seu link de afiliado
+    price: "R$ 19", // O preço que você mencionou
+  },
+];
 
 export default function Home() {
-  const [favorites, setFavorites] = useState<string[]>([])
-  const [mounted, setMounted] = useState(false)
+  const [favorites, setFavorites] = useState<string[]>([]);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true)
-    const storedFavorites = localStorage.getItem('devaneios-favorites')
+    setMounted(true);
+    const storedFavorites = localStorage.getItem("devaneios-favorites");
     if (storedFavorites) {
-      setFavorites(JSON.parse(storedFavorites))
+      setFavorites(JSON.parse(storedFavorites));
     }
-  }, [])
+  }, []);
 
   const toggleFavorite = (bookId: string) => {
     const newFavorites = favorites.includes(bookId)
-      ? favorites.filter(id => id !== bookId)
-      : [...favorites, bookId]
-    
-    setFavorites(newFavorites)
-    localStorage.setItem('devaneios-favorites', JSON.stringify(newFavorites))
-  }
+      ? favorites.filter((id) => id !== bookId)
+      : [...favorites, bookId];
+
+    setFavorites(newFavorites);
+    localStorage.setItem("devaneios-favorites", JSON.stringify(newFavorites));
+  };
 
   const shareOnSocial = (platform: string, book: Book) => {
-    const text = `Confira "${book.title}" de ${book.author} - ${book.description.substring(0, 100)}...`
-    const url = window.location.href
-    
+    const text = `Confira "${book.title}" de ${
+      book.author
+    } - ${book.description.substring(0, 100)}...`;
+    const url = window.location.href;
+
     const shareUrls: { [key: string]: string } = {
-      facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(text)}`,
-      twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`,
-      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`
-    }
-    
+      facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+        url
+      )}&quote=${encodeURIComponent(text)}`,
+      twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+        text
+      )}&url=${encodeURIComponent(url)}`,
+      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+        url
+      )}`,
+    };
+
     if (shareUrls[platform]) {
-      window.open(shareUrls[platform], '_blank', 'width=600,height=400')
+      window.open(shareUrls[platform], "_blank", "width=600,height=400");
     }
-  }
+  };
 
   if (!mounted) {
-    return null
+    return null;
   }
 
   return (
@@ -90,8 +109,9 @@ export default function Home() {
               Filosofia, Estratégia e Sabedoria Atemporal
             </p>
             <p className="text-sm sm:text-base md:text-lg text-gray-400 max-w-2xl mx-auto">
-              Descubra os clássicos que moldaram o pensamento sobre poder, guerra e existência. 
-              Obras que transcendem o tempo e continuam relevantes para líderes, estrategistas e pensadores.
+              Descubra os clássicos que moldaram o pensamento sobre poder,
+              guerra e existência. Obras que transcendem o tempo e continuam
+              relevantes para líderes, estrategistas e pensadores.
             </p>
           </div>
         </div>
@@ -106,7 +126,8 @@ export default function Home() {
               Biblioteca Essencial
             </h2>
             <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto">
-              Cada obra selecionada oferece insights profundos sobre estratégia, poder e a natureza humana
+              Cada obra selecionada oferece insights profundos sobre estratégia,
+              poder e a natureza humana
             </p>
           </div>
 
@@ -126,13 +147,17 @@ export default function Home() {
                   <button
                     onClick={() => toggleFavorite(book.id)}
                     className="absolute top-4 right-4 p-2 bg-black/60 backdrop-blur-sm rounded-full hover:bg-black/80 transition-all duration-300"
-                    aria-label={favorites.includes(book.id) ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}
+                    aria-label={
+                      favorites.includes(book.id)
+                        ? "Remover dos favoritos"
+                        : "Adicionar aos favoritos"
+                    }
                   >
                     <Heart
                       className={`w-6 h-6 transition-all duration-300 ${
                         favorites.includes(book.id)
-                          ? 'fill-red-600 text-red-600'
-                          : 'text-white'
+                          ? "fill-red-600 text-red-600"
+                          : "text-white"
                       }`}
                     />
                   </button>
@@ -160,7 +185,10 @@ export default function Home() {
                     </h4>
                     <ul className="space-y-2">
                       {book.mainIdeas.map((idea, index) => (
-                        <li key={index} className="flex items-start gap-2 text-sm text-gray-300">
+                        <li
+                          key={index}
+                          className="flex items-start gap-2 text-sm text-gray-300"
+                        >
                           <span className="text-red-600 mt-1">▸</span>
                           <span>{idea}</span>
                         </li>
@@ -171,7 +199,9 @@ export default function Home() {
                   {/* Price and CTA */}
                   <div className="mt-auto">
                     <div className="flex items-center justify-between mb-4">
-                      <span className="text-2xl font-bold text-red-500">{book.price}</span>
+                      <span className="text-2xl font-bold text-red-500">
+                        {book.price}
+                      </span>
                     </div>
 
                     <a
@@ -185,23 +215,25 @@ export default function Home() {
 
                     {/* Social Share */}
                     <div className="flex items-center justify-center gap-3 mt-4 pt-4 border-t border-gray-700">
-                      <span className="text-xs text-gray-500 mr-1">Compartilhar:</span>
+                      <span className="text-xs text-gray-500 mr-1">
+                        Compartilhar:
+                      </span>
                       <button
-                        onClick={() => shareOnSocial('facebook', book)}
+                        onClick={() => shareOnSocial("facebook", book)}
                         className="p-2 bg-gray-700 hover:bg-blue-600 rounded-lg transition-all duration-300"
                         aria-label="Compartilhar no Facebook"
                       >
                         <Facebook className="w-4 h-4" />
                       </button>
                       <button
-                        onClick={() => shareOnSocial('twitter', book)}
+                        onClick={() => shareOnSocial("twitter", book)}
                         className="p-2 bg-gray-700 hover:bg-sky-500 rounded-lg transition-all duration-300"
                         aria-label="Compartilhar no Twitter"
                       >
                         <Twitter className="w-4 h-4" />
                       </button>
                       <button
-                        onClick={() => shareOnSocial('linkedin', book)}
+                        onClick={() => shareOnSocial("linkedin", book)}
                         className="p-2 bg-gray-700 hover:bg-blue-700 rounded-lg transition-all duration-300"
                         aria-label="Compartilhar no LinkedIn"
                       >
@@ -222,7 +254,8 @@ export default function Home() {
                 Seus Favoritos ({favorites.length})
               </h3>
               <p className="text-gray-400 text-sm sm:text-base">
-                Você marcou {favorites.length} {favorites.length === 1 ? 'livro' : 'livros'} como favorito. 
+                Você marcou {favorites.length}{" "}
+                {favorites.length === 1 ? "livro" : "livros"} como favorito.
                 Suas preferências são salvas automaticamente.
               </p>
             </div>
@@ -271,11 +304,12 @@ export default function Home() {
               </a>
             </div>
             <p className="text-gray-500 text-xs sm:text-sm">
-              © 2024 Devaneios. Todos os direitos reservados. | Links de afiliados Amazon
+              © 2024 Devaneios. Todos os direitos reservados. | Links de
+              afiliados Amazon
             </p>
           </div>
         </div>
       </footer>
     </div>
-  )
+  );
 }
